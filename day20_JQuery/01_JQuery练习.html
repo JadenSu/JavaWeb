@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <title>Bootstrap 01</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    //暂时不使用IE 注释掉
+    <!--<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>-->
+    <!--<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>-->
+    <![endif]-->
+    <style >
+        .blue
+        {
+            color:blue;
+        }
+        .red
+        {
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<h1>你好，世界！</h1>
+<p >嘿嘿嘿</p>
+<div>
+    <p>哦哈哈</p>
+</div>
+<a href="http://www.baidu.com" id="a1">百度</a><br>
+<button>修改连接到hao123</button>
+<button id="bt2">改变标题内容</button>
+<button id="bt3">改变标题内容</button>
+<button id="bt4">尾部增加文本</button>
+<button id="bt5">头部增加文本</button>
+<button id="bt6">删除嘿嘿嘿</button>
+<button id="bt7">标题变红</button>
+<button id="bt8">标题颜色切换</button>
+<button id="bt9">设置css属性</button>
+<button id="bt10">div p设置css属性</button>
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="js/bootstrap.min.js"></script>
+</body>
+<script>
+    $(document).ready(function () {
+        $("button:first").click(function () {
+            $("#a1").attr("href","http://www.hao123.com");
+            $("#a1").text("hao123");
+        });
+
+        // $("button:last").click(function () {
+        //     $("h1").html("你好,中国!");
+        // });
+
+        $("#bt2").click(function () {
+            $("h1").html("你好,中国!");
+        });
+
+         $("#bt3").click(function () {
+             $("h1").html(function (i,origText) {
+                return origText+"你好,福建!";
+             });
+         });
+
+         $("#bt4").click(function () {
+            $("p").append("<b>尾部添加文本</b>")
+         });
+
+        $("#bt5").click(function () {
+            $("p").prepend("<b>头部添加文本</b>")
+        });
+
+        $("#bt6").click(function () {
+            $("p").remove();
+         });
+
+        $("#bt7").click(function () {
+            $("h1").addClass("red");
+        });
+
+        $("#bt8").click(function () {
+            $("p").toggleClass("red");
+        });
+
+        $("#bt9").click(function () {
+            $("p").css({"font-size":66});
+        });
+
+        $("#bt10").click(function () {
+            $("div>p").css({"background":"red"});
+        });
+
+
+
+
+    });
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="lbt" src="img/banner_1.jpg">
+</body>
+<script>
+    //每隔1秒修改一次图片 setInterval(fun,1000)
+    var jpg = document.getElementById("lbt");
+    var i = 1;
+   function fun() {
+       if (++i>3){
+           i=1;
+       }
+       jpg.src ="img/banner_"+i+".jpg";
+   }
+   setInterval(fun,1000);
+</script>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>猜拳游戏</title>
+		<style>
+			hr{
+				width:52%;
+				align:center;
+				border: 3px solid red;
+			}
+			
+			#a,#b,#center{
+				width:200px;
+				height: 200px;
+				border: 1px solid red;
+				line-height: 200px;
+				text-align: center;
+				font-size: 30px;
+				font-family:"arial, helvetica, sans-serif";
+			}
+			#a{
+				position: absolute;
+				margin-left: 23%;
+				float:left;
+			}
+			#b{
+				position: absolute;
+				margin-left: 61%;
+				float:left;
+			}
+			#center{
+				position: absolute;
+				margin-left: 42%;
+				float:left;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="margin-top:100px;margin-left: auto;">
+			<hr color="red" size="5">
+			
+				<div id="a">
+					<!--<input type="button" value="出拳">-->
+					<span>人：</span><span id="people"></span>
+					
+				</div>
+				<div id="center">结果</div>
+				<div id="b">
+					<span>机：</span><span id="computer"></span>
+				</div>
+			
+			<hr color="red" size="5" style="margin-top: 220px;">
+			<center>
+				<input onclick="pk();" type="button" value="pk"  style="font-size: 50px;background-color: red;width: 100px;">
+			</center>
+		</div>
+		
+	</body>
+	<script>
+		var arr = ["剪刀","石头","布"];
+		var people = document.getElementById("people");
+        var computer = document.getElementById("computer");
+		var result = document.getElementById("center");
+
+		function pk() {
+		    //人的猜拳
+            var index1 = Math.floor(Math.random()*1000)%arr.length;
+            people.innerText=arr[index1];
+            //电脑的猜拳
+            var index2 = Math.floor(Math.random()*1000)%arr.length;
+            computer.innerText=arr[index2];
+			//进行判断 使用 index
+            switch (index1){
+                case 0:
+                    if(index2==0){result.innerText="哎哟,平局"}
+                    if(index2==1){result.innerText="电脑赢了"}
+                    if(index2==2){result.innerText="电脑输了"}
+                    break;
+                case 1:
+                    if(index2==0){result.innerText="电脑输了"}
+                    if(index2==1){result.innerText="哎哟,平局"}
+                    if(index2==2){result.innerText="电脑赢了"}
+                    break;
+                case 2:
+                    if(index2==0){result.innerText="电脑赢了"}
+                    if(index2==1){result.innerText="电脑输了"}
+                    if(index2==2){result.innerText="哎哟,平局"}
+                    break;
+                default:
+                    result.innerHTML="搞毛线";
+            }
+
+
+
+        }
+
+
+
+	</script>
+</html>

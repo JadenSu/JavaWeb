@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jquery案例之抽奖</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js">
+    </script>
+</head>
+<body>
+
+<!-- 小像框 -->
+<div style="border-style:dotted;width:160px;height:100px">
+    <img id="img1ID" src="../img/man00.jpg" style="width:160px;height:100px"/>
+</div>
+
+<!-- 大像框 -->
+<div
+        style="border-style:double;width:800px;height:500px;position:absolute;left:500px;top:10px">
+    <img id="img2ID" src="../img/man00.jpg" width="800px" height="500px"/>
+</div>
+
+<!-- 开始按钮 -->
+<input
+        id="startID"
+        type="button"
+        value="点击就送"
+        style="width:150px;height:150px;font-size:22px"
+        onclick="imgStart()">
+
+<!-- 停止按钮 -->
+<input
+        id="stopID"
+        type="button"
+        value="油腻师姐"
+        style="width:150px;height:150px;font-size:22px"
+        onclick="imgStop()">
+
+
+<script language='javascript' type='text/javascript'>
+    //准备一个一维数组，装用户的像片路径
+    var imgs = [
+        "../img/man00.jpg",
+        "../img/man01.jpg",
+        "../img/man02.jpg",
+        "../img/man03.jpg",
+        "../img/man04.jpg",
+        "../img/man05.jpg",
+        "../img/man06.jpg"
+    ];
+    var index;
+    var startId;
+    //1.开始方法
+    function imgStart() {
+        //1.1  设置开始按钮不可以用
+        $("#startID").prop("disabled",true);
+        //1.2  随机改变小相框src  20 毫秒
+        startId = setInterval(function () {
+            index = Math.floor(Math.random()*1000%imgs.length);
+            $("#img1ID").prop("src",imgs[index]);
+        },50);
+
+    };
+    //2.停止方法
+    function imgStop() {
+        //2.1  设置开始按钮可用
+        $("#startID").prop("disabled",false);
+        //2.2  停止开始方法
+        clearInterval(startId);
+        //2.3   更改大相框的src
+        $("#img2ID").prop("src",imgs[index]);
+    }
+
+</script>
+</body>
+</html>

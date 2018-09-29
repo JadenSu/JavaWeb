@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左右窗口拉动</title>
+</head>
+<style>
+    *{
+        border: 1px solid  yellow;
+    }
+    div{
+        float: left;
+        width: 300px;
+        height: 400px;
+        background-color: pink;
+    }
+    input{
+        width: 100px;
+        height:30px;
+        margin: 30px;
+        margin-left: 100px;
+        border-radius: 5px;
+        background-color: aqua;
+    }
+    select{
+        background-color: aquamarine;
+    }
+</style>
+<body>
+<div id="div1">
+    <select multiple="multiple" id="select1" style="width:200px;height:300px;">
+        <option value="1">选项1</option>
+        <option value="2">选项2</option>
+        <option value="3">选项3</option>
+        <option value="4">选项4</option>
+        <option value="5">选项5</option>
+        <option value="6">选项6</option>
+        <option value="7">选项7</option>
+    </select>
+</div>
+<div>
+    <input type="button" value="Add>" onclick="fun1()"><br>
+    <input type="button" value="<Remove" onclick="fun2()"><br>
+    <input type="button" value="Add All>>" onclick="fun3()"><br>
+    <input type="button" value="<<Remove All" onclick="fun4()">
+</div>
+<div id="div2">
+    <select multiple="multiple" id="select2" style="width:200px;height:300px;">
+
+    </select>
+</div>
+
+</body>
+<script>
+    //获取两个选框对象
+    var select1 = document.getElementById("select1");
+    var select2 = document.getElementById("select2");
+    var options1 = select1.options;
+    var options2 = select2.options;
+    //添加方法
+    function fun1() {
+        // for (var obj in options1) {
+        //     console.log(obj)//forin 循环  obj是当前数组元素的索引而不是数组里的元素
+        //     if(options1[obj].selected){
+        //         select2.append(options1[obj])
+        //         obj--;
+        //     }
+        // }
+        for(var i = 0; i< options1.length;i++){
+            if(options1[i].selected){
+                select2.add(options1[i])
+                i--;
+            }
+        }
+
+    }
+    /*
+    select.add()向 areas, controlRange 或 options 集合中添加一个元素。
+
+    Node.append()与 Node.appendChild() 的差异：
+    ParentNode.append() 允许追加  DOMString 对象，而 Node.appendChild() 只接受 Node 对象。
+    ParentNode.append() 没有返回值，而 Node.appendChild() 返回追加的 Node 对象。
+    ParentNode.append() 可以追加几个节点和字符串，而 Node.appendChild() 只能追加一个节点。
+     */
+
+    //移除选中方法
+    function fun2() {
+        for(var i = 0; i< options2.length;i++){
+            if(options2[i].selected){
+                select1.appendChild(options2[i])
+                i--;
+            }
+        }
+    }
+
+    //添加所有方法
+    function fun3() {
+        for(var i = 0; i< options1.length;i++){
+            select2.append(options1[i]);
+            i--;
+        }
+    }
+
+    //删除所有方法
+    function fun4() {
+        for(var i = 0; i< options2.length;i++){
+            select1.append(options2[i]);
+            i--;
+        }
+    }
+</script>
+</html>

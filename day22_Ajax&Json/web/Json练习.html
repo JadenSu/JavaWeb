@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Json练习</title>
+    <script>
+        // Json的格式  {"":""}   对象{"":{}}   数组{"":[]}  多个可以使用,隔开
+        var arr = [
+            {"name":"zhangsan","age":11},
+            {"name":"lisi","age":12},
+            {"name":"wangwu","age":66}
+        ];
+
+        //遍历获取arr中的值  获取方式主要有两种 Json对象.键名  Jason对象["键名"]循环中使用
+        for(var i =0; i<arr.length;i++){
+            var p = arr[i];
+            for(var key in p){
+                alert(key+":"+p[key])//这里不是p.key   因为这里的key 是一个字符串
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+-- -- 第一步，发现用户输入，可以利用监听用户在输入框的输入对应的事件，将后面步骤封装进行调用
+-- --
+-- -- 第二步，获取用户输入，这个比较简单，注意考虑trim
+-- --
+-- -- 第三步，生成提示框提示内容，根据第二步获得的内容，遍历postfixList数组，生成要在email-sug-wrapper的UL中填充的内容。
+-- --
+-- -- 第四步，根据实际是否有提示内容，控制email-sug-wrapper的显示/隐藏情况-->
+  <div>
+      <input id = "email-input" type="text">
+      <ul id="email-sug-wrapper" class="email-sug"></ul>
+
+
+      <!--inputs输入监听 element.addEventListener(event, function, useCapture);-->
+
+  </div>
+</body>
+    <script>
+        var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net']
+        document.getElementById("email-input").addEventListener(onkeydown(),
+            function(){
+            console.log(input.value);
+        })
+    </script>
+</html>

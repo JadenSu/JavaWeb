@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //数组对象  创建 方法 属性
+        var arr1 = new Array(66,77,88);
+        var arr2 = new Array(66);//创建长度为66的数组，其中并没有元素
+        var arr3 = [66,77,88]//元素只有66
+        //方法  join按照指定分隔符拼接字符串
+        document.write(arr1.join("???"))//66???77???88
+        //push 数组末尾添加元素，返回添加后的长度
+        document.write(arr1.length)//3
+        document.write("<br>")
+
+        document.write(arr1.push(99))//4
+        document.write("<br>")
+
+        //数学对象不需要创建，方法主要掌握ceil()向上取 floor()向下取 randon()【0,1）随机取值
+        //round() 四舍五入
+
+        //1~100随机取值
+        document.write(Math.floor(Math.random()*100)+1);
+        document.write("<br>")
+        //正则表达式对象
+
+        //创建
+        var reg = new RegExp("/w{4,8}")//4~8个单词字母
+        //方法 test
+        var str = "fadfaegeGSEGYAERJTRJWEGSHDRGSFAS";
+        var flag = reg.test();//false
+        document.write(flag)
+        document.write("<br>")
+        //全局对象 global
+        //方法 encodeURI()  decodeURI()
+        var str1 = "天外飞仙"
+        document.write(encodeURI(str1))
+        document.write("<br>")
+        //字符串转换数字 parseInt()
+        var num = '77799dadad'
+        document.write(parseInt(num))//77799
+
+
+        //重点掌握方法对象 Function
+        //创建 3种方法 没有返回值类型 没有参数类型 第一种用的比较少
+        var fun1 = new Function()//(参数类表，方法体)
+        function fun2 (a,b){ return (a+b)}
+        var fun3 = function (a,b) {
+            return a+b;
+        }
+        document.write("<br>")
+        document.write(fun1(1,1)) //这里出问题 后面就不会执行了
+        document.write("<br>")
+        document.write(fun2(1,1))
+        document.write("<br>")
+        document.write(fun3(1,1))
+        document.write("<br>")
+        //前端的属性   length  形参的个数
+
+        document.write(fun1.length)
+        document.write("<br>")
+        document.write(fun2.length)
+        document.write("<br>")
+        document.write(fun3.length)
+        document.write("<br>")
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

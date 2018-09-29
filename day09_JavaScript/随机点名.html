@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>随机砍人：</p>
+<p id="name">还有谁</p>
+<button id="obt">一刀99级</button>
+<button id="cbt">一刀0级</button>
+</body>
+<script>
+    var arr = ["张飞","马云","赵云","张三丰","张无忌","黄渤","陆毅","罗纳尔多","斯图里奇"];
+    var obt = document.getElementById("obt");
+    var cbt = document.getElementById("cbt");
+    var id = null;
+    function fun() {
+        var index = Math.floor(Math.random()*1000)%arr.length;
+        document.getElementById("name").innerHTML = arr[index];
+        id = setTimeout(fun,100);
+    }
+    obt.onclick = fun;
+    cbt.onclick = function () {
+        clearTimeout(id);
+        //获取点名的值,新建数组添加,遍历数组获得点名次数
+        var nameValue = document.getElementById("name").innerHTML;
+
+    }
+
+
+
+    // var flag = true;
+    // function sn() {
+    //     if(flage){
+    //         //开始方法
+    //         flag=false;
+    //     }else {
+    //         //停止方法
+    //         flag=true;
+    //     }
+    // }
+
+
+
+</script>
+</html>

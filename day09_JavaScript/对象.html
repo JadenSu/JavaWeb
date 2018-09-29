@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        //数组创建的三种方式
+        // var arr1 = new Array(1,2,3)//元素列表
+        // var arr2 = new Array(5)//长度
+        // var arr3 = [4,5,6]
+        //
+        // document.write(arr1+"<br>")
+        // document.write(arr2+"<br>")
+        // document.write(arr3+"<br>")
+        // document.write(Math.random())//返回[0,1)之间的一个值
+
+        var arr = ["红","黄","蓝","绿","紫","青","白","黑"];
+
+        for(var i = 0; i<=100000;i++){
+            var index = Math.floor(Math.random()*1000)%arr.length;
+            document.write(arr[index]);
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市联动</title>
+</head>
+<body>
+<select id="one" onchange="fun()">
+    <option value="choice">--请选择--</option>
+    <option value="0">水果</option>
+    <option value="1">蔬菜</option>
+</select>
+
+<select id="two">
+    <option value="choice">--请选择--</option>
+</select>
+</body>
+<script>
+
+    var food = new Array();
+    food[0]=["西瓜","南瓜","冬瓜"];
+    food[1]=["白菜","小白菜","大白菜"]
+    //根据option值与数组角标写入第二个select
+
+    //获取one选中option的角标
+    var selectone = document.getElementById("one");
+    var index = selectone.selectedIndex;
+    console.log(index)
+    //选中option的值
+    var value = selectone.options[index].value;
+    //根据index将对应数组加载进selecttwo
+    var selecttwo = document.getElementById("two");
+    function fun() {
+        selecttwo.innerHTML =
+            "<option>--请选择--</option>"+
+            "<option>"+food[index][0]+"</option>"+
+            "<option>"+food[index][1]+"</option>"+
+            "<option>"+food[index][2]+"</option>";
+    }
+    //new Option(agr,agr),第一个参数为text文本，第二参数为服务器返回的value值。比如 new Option("举例","0"),相对应的HTML
+    //就是<option value="0">举例</option>
+    function fun2() {
+        for(var i = 0 ; i <food[index].length;i++){
+            selecttwo.options[i] = new Option(food[index][i],i)
+        }
+    }
+
+</script>
+</html>

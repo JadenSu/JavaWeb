@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: auto;
+        }
+        #btn{
+            margin-left:15px ;
+            margin-top: 20px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <button id="btn"  onclick="fun1()">点击就送</button>
+</div>
+
+</body>
+<script>
+    var second = 10;
+
+    function fun() {
+        document.getElementById("btn").innerHTML = second;
+        if( --second==0){
+            location.href = "https://qz.com/"
+        }
+        time.innerHTML = second;
+    }
+    function fun1() {
+        setInterval(fun,1000);
+    }
+
+</script>
+</html>

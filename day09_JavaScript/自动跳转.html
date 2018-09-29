@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            text-align: center;
+        }
+        span{
+            color:red;
+        }
+
+    </style>
+</head>
+<body>
+  <p>
+      <span id="time">5</span>秒之后,自动跳转.....
+  </p>
+</body>
+<script>
+    //每秒更换数字
+    //获取<span>的内容,每秒执行一次-- 当等于0的时候,跳转页面open(www.baidu.com)
+    var time = document.getElementById("time");
+    var second = 5;
+    //定义一个方法 判断second等于零的时候跳转页面 location.href =""
+    function fun() {
+        if( --second==0){
+            location.href = "https://qz.com/"
+        }
+        time.innerHTML = second;
+    }
+    //每秒调用一次方法
+    setInterval(fun,1000);
+
+</script>
+</html>

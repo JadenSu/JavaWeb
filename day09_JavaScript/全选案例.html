@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选小案例</title>
+</head>
+<body>
+<tr>
+    我全都要<input type="checkbox" value="all" onclick="fun()">
+</tr>
+
+<hr color="yellow" width=60% align="left">
+
+林志玲<input type="checkbox" value="1"> <br>
+
+
+张曼玉<input type="checkbox" value="2"><br>
+
+
+林青霞<input type="checkbox" value="3"><br>
+
+
+刘亦菲<input type="checkbox" value="4"><br>
+
+本泽马<input type="checkbox" value="5"><br>
+
+</t
+</body>
+<script>
+    function fun() {
+        var all = document.getElementsByTagName("input")[0];
+        console.log(all.checked);
+        var cbs = document.getElementsByTagName("input");
+        if (all.checked) {
+            for (var i = 1; i < cbs.length; i++) {
+                cbs[i].checked = true;
+            }
+        } else {
+            for (var i = 1; i < cbs.length; i++) {
+                cbs[i].checked = false;
+            }
+        }
+    }
+</script>
+</html>

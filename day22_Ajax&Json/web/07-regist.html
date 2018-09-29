@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+            思路:验证用户名   id输入框绑定失焦事件,获取 $("#username").val
+            提交 $(post),接收返回text 显示在 $("#s-username")
+         */
+        $(function () {
+            $("#username").blur(function () {
+                //获取输入值
+                var username = $("#username").val();
+                //alert(username);
+                //异步请求  url data callback type
+                $.post("findUserServlet",{username:username},function (data) {
+                    //$("#s_username")获取 data
+                    // $("#s_username").html(data);
+                    alert(data);
+                },"text");
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+
+    <form>
+
+        <input type="text" id="username" name="username" placeholder="请输入用户名">
+        <span id="s_username"></span>
+        <br>
+        <input type="password" name="password" placeholder="请输入密码"><br>
+        <input type="submit" value="注册"><br>
+
+    </form>
+
+</body>
+</html>

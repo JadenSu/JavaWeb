@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        //url data callback type相应结果类型
+        $.get("ajaxServlet",{username:"lisa"},function (data) {
+            alert(data);
+        },"text");
+    </script>
+</head>
+<body>
+<input type="button" value="发送异步请求" onclick="fun();">
+
+</body>
+</html>

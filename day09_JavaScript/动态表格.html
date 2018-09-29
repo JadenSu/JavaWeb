@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        table{
+            border: 1px solid;
+            margin: auto;
+            width: 500px;
+        }
+
+        td,th{
+            text-align: center;
+            border: 1px solid;
+        }
+        div{
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <input type="text" id="id" placeholder="请输入编号">
+    <input type="text" id="name"  placeholder="请输入姓名">
+    <input type="text" id="gender"  placeholder="请输入性别">
+    <input type="button" value="添加" id="btn_add">
+
+</div>
+
+
+<table>
+    <caption>学生信息表</caption>
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+
+    <tr>
+        <td>1</td>
+        <td>令狐冲</td>
+        <td>男</td>
+        <td><a href="javascript:void(0);" onclick="delTr(this);">删除</a></td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td>任我行</td>
+        <td>男</td>
+        <td><a href="javascript:void(0);" onclick="delTr(this);">删除</a></td>
+    </tr>
+
+    <tr>
+        <td>3</td>
+        <td>岳不群</td>
+        <td>?</td>
+        <td><a href="javascript:void(0);" onclick="delTr(this);" >删除</a></td>
+    </tr>
+
+
+</table>
+</body>
+<script>
+
+    //1.添加按钮绑定单击事件,获取输入框内容,添加<tr>
+    var add = document.getElementById("btn_add");
+    add.onclick =fun2;
+
+
+    function fun1() {
+        //获取输入框数据
+        var id = document.getElementById("id");
+        var idValue = id.value;
+        var name = document.getElementById("name");
+        var nameValue = name;
+        var gender = document.getElementById("gender");
+        var genderValue = gender.value;
+
+        //创建tr td , 将内容传输到 表格内   创建元素 creatElement(tr) 添加appendChild(td) 添加或者删除都需要知道父节点
+        var ntr = document.createElement("tr");
+
+        //ID单元格和文本添加
+        var idtd = document.createElement("td");
+        var idnode = document.createTextNode(idValue);
+        idtd.appendChild(idnode);
+
+        //name单元格和文本添加
+        var nametd = document.createElement("td");
+        var namenode = document.createTextNode(nameValue);
+        nametd.appendChild(namenode);
+
+        //gender单元格和文本添加
+        var gendertd = document.createElement("td");
+        var gendernode = document.createTextNode(genderValue);
+        gendertd.appendChild(gendernode);
+
+        //td添加至tr
+        ntr.appendChild(idtd);
+        ntr.appendChild(nametd);
+        ntr.appendChild(gendertd);
+
+        //!!tr也需要添加到父节点
+        var table = document.getElementsByTagName("table")[0];
+        table.appendChild(ntr);
+
+        //2.删除 ?? 如何删除内容?删除<tr>? removeChild() 需要知道父节点 .parent
+        //href="javascript:void(0) 死链接
+    }
+
+    //使用innerHTML添加 无需添加节点可以解析标签
+    function fun2 () {
+        var id = document.getElementById("id").value;
+        var name = document.getElementById("name").value;
+        var gender = document.getElementById("gender").value;
+        //获取table
+        var table = document.getElementsByTagName("table")[0];
+        table.innerHTML +="<tr>\n"+
+                "<td>"+id+"<\td>\n"+
+                "<td>"+name+"<\td>\n"+
+                "<td>"+gender+"<\td>\n"+
+                "<td><a href='javascrip:void(0);' onclick='fun3(this);'>删除</a></td>\n"+
+                "</tr>";
+    }
+    //删除方法
+    function fun3(obj){
+        var table = obj.parentNode.parentNode.parentNode;
+        var tr = obj.parentNode.parentNode;
+        table.removeChild(tr);
+    }
+
+
+</script>
+</html>

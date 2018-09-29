@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="form1" action="" method="post">
+    <select name="province" onchange="set_city(this,this.form.city)">
+        <option value="0">选择省份</option>
+        <option value="河北省">河北省</option>
+        <option value="山西省">陕西省</option>
+    </select>
+
+    <select name="city" id="cities">
+        <option value="0">选择城市</option>
+    </select>
+</form>
+</body>
+<script>
+    var cities = new Array();
+    cities["河北省"] = ['石家庄', '张家口市', '承德市', '秦皇岛市', '唐山市', '廊坊市', '保定市', '沧州市', '衡水市', '邢台市', '邯郸市'];
+    cities["山西省"] = ['太原市', '大同市', '朔州市', '阳泉市', '长治市', '晋城市', '忻州地区', '吕梁地区', '晋中市', '临汾地区', '运城地区']
+    function set_city(province,city) {
+
+        var pv = province.value;
+        var cv = city.value;
+
+        city.length = 1;//设置或获取集合中对象的数目。
+
+        if(pv == '0') return;
+
+        if(typeof (cities[pv]) == 'undefined') return;
+
+        //??
+        var i, j;
+        for(i=0;i<cities[pv].length; i++){
+            j = i +1;
+            city.option[j] = new Option();
+            city.option[j].text = cities[pv][i];
+            city.option[j].value = cities[pv][i];
+        }
+    }
+</script>
+</html>
